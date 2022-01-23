@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="admin.js"> </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="admin.css">
+    <script type="text/javascript" src="js.js"> </script>
+    
+</head>
+
+<body onload="checkadmin();renderlistacc()">
+    <div id="top"><a href="index.html">LOGO</a> </div>
+    <div id="leftmenu">
+        <div id="taikhoan">
+            <i class="far fa-user-circle fa-3x"  style="float:left;"></i>
+            <p id="tenadmin"></p>
+
+        </div>
+        
+        <div id="sanpham" onclick="htmenuSP();">Sản phẩm <i class="fas fa-caret-down"></i></div>
+        <div id="menuSP">   
+            <div  ><a href="admin.html?addSP">Thêm sản phẩm</a> </div>
+            <div ><a href="admin.html?dsSP">Danh sách sản phẩm</a></div>
+        </div>
+            <div id="menuSP">   
+                <div><a style='text-decoration: none;' href="admin.html">Thêm sản phẩm</a></div>
+                <div >Danh sách sản phẩm</div>
+            </div>
+        <div id="sanpham" >Tài khoản</div>
+        <div id="sanpham" ><a href="admin.html?thongke">Thống kê</a></div>
+        <div id="sanpham" ><a href="admin.html?donhang">Đơn hàng</a> </div>
+    </div>
+    <div id="content">
+                   <!-- ds sản phẩm -->
+                        <div id="listacc" class="listacc" >
+                        <h3 style="margin-left: 30px ;">  DS ACC </h3>
+                        <table id="dsacc" width="600" border="3"  cellpadding="0" ></table>
+                        </div>
+
+                   <!-- Bảng chỉnh sửa acc  -->
+                   <div id="nenAcc">
+                        <div id="chinhacc" >
+                            <div style="border-bottom: 2px solid #ddd ; line-height: 2;text-align: center;position: relative;">
+                                <h2>Chỉnh Tài Khoản</h2>
+                                <div class="daux"   onclick="dongacc();"><i class="fas fa-times fa-2x "></i></div>
+                            </div>
+                            <div id="chinhform">
+                                <div id="suaten">
+                                    <label>HọTên </label>
+                                    <input type="text" value="" id="ten">
+                                </div>
+                                <div id="suasdt">
+                                    <label>SĐT </label>
+                                    <input type="text" value="" id="sdt">
+                                </div>
+                                <div id="suatentk">
+                                    <label>TênTK </label>
+                                    <input type="text" value="" id="tentk">
+                                </div>
+                                <div id="suamk">
+                                    <label>Mật Khẩu </label>
+                                    <input type="text" value="" id="mk">
+                                </div>
+                                <div id="suadc">
+                                    <label>Địa Chỉ </label>
+                                    <input type="text" value="" id="dc">
+                                </div>
+                                <div>
+                                    <label>Quyền:</label>
+                                    <select name="chonloai" id="quyen">
+                                        <option>user</option>
+                                        <option>admin</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label>T.Trạng:</label>
+                                    <select  name="chonloai" id="tt">
+                                        <option>open</option>
+                                        <option>close</option>
+                                    </select>
+                                </div>
+                                <button id="btnsuaacc" onclick="saveUser();">Lưu Lại</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+    </div>
+    <script type="text/javascript" src="admin.js"> </script>
+</body>
+</html>

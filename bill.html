@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js.js"> </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body style="margin: 0;" onload="checklogin2();showbill();hienSP();"> 
+    <div class="header" style="position: relative;">     
+        <div class="top">
+            <a href="index.html" style="float: left;"><img src = "img/logo/logo.png" style="width: 200px;height: 50px;" /></a>   
+            <button type="submit"  onclick="mosearch()"; style="height:30px;text-align:center;font-size:medium;left: 460px;top:5px;position: absolute; border:none;background-color: white;">Tìm Kiếm..<i class="fas fa-search"></i></button>
+					<div id="khungsearch" >
+						<div id="thanhsearch">
+						<input type="text"  id="timkiem" placeholder="Tìm kiếm" onkeyup="search()">
+						<button onclick= "showsearchnangcao()" >Lọc NC</button>
+						</div>
+						<div id="closesearch" onclick="closesearch();">+</div>
+						<div id="searchnangcao" style="display: none;" class="">
+                                <select id="loaisanpham" onchange="search();">
+                                    <option value="all" >Tất Cả Sản Phẩm</option>
+                                    <option value="Phone" >phone</option>
+                                    <option value="Tablet" >Tablet</option>
+                                    <option value="Laptop" >Laptop</option>
+                                    <option value="SmartWatch" >SmartWatch</option>
+                                    <option value="accessories" >accessories</option>
+                                    
+                                </select>
+							
+                                <div><input style="height: 30px;" type="text" id="priceform"  value="" placeholder="Giá từ"><i id="khoangcachsearch" class= "fa fa-long-arrow-right"></i><input style="height: 30px;" type="text" id="priceto"  value=" " placeholder="Đến">
+                                
+                                    <div id="nutloc"  ><button onclick="timkiemnangcao();" style="width: 100px;color: white">Lọc</button></div>
+                                </div>
+                            </div>    
+
+						
+							<div id="searchresult">
+							</div>
+					</div> 
+            </form>   
+            <button id="giohangs" onclick ="location.href='giohang.html'"style="background-color: black;height:30px;float: left;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px;border-radius: 5px;cursor: pointer;"><i class="fas fa-shopping-cart"></i>  Giỏ hàng</button>
+            <a href="admin.html" id="quanly" style="display:none;height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px;border-radius: 5px;"><i class="fas fa-user-cog" style="margin-right:8px;"></i>Quản lý </a>
+            <a onclick ="location.href='bill.html'" id="lichsu" style="cursor: pointer;;display:none;height:20px;float: left;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px;border-radius: 5px;">Lịch sử mua hàng</a>
+            <a  onclick="SignIn();" id="top"; style="height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px; margin-right:10px;border-radius: 5px;cursor: pointer;"><i class="far fa-user-circle"></i> Tài Khoản</a>
+            <a  onclick="logout();" id="top1"; style="display:none;height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px; margin-right:2px;border-radius: 5px;cursor: pointer;"><i class="fas fa-sign-out-alt" ></i></i>LogOut</a>
+            <a href="#"  id="top2"; style="display:none;height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px; margin-right:2px;border-radius: 5px;cursor: pointer;"></a>           
+        </div>
+        <div class="menutop">
+            <ul>
+                <li><a href="index.html?dienthoai&0"><i class="fas fa-mobile-alt"></i> Điện thoại</a></li>
+                <li><a href="index.html?laptop&0"><i class="fas fa-laptop"></i> Laptop</a></li>
+                <li><a href="index.html?watch&0"><i class="far fa-clock"></i> Đồng hồ thông minh</a></li>
+                <li><a href="index.html?phukien&0"><i class="far fa-keyboard"></i> Phụ kiện</a></li>
+                <li><a href="index.html?tablet&0"><i class="fas fa-tablet-alt"></i> Tablet</a></li>
+            </ul>  
+        </div>
+    </div>
+    <div id="bill"></div>
+       
+    
+</body>
+</html>

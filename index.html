@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js.js"> </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body onload="hienSP();showSlides();checklogin(); "style="background-color: #f0f0f0; margin: 0;"> 
+    <div class="header">     
+        <div class="top">
+            <a href="index.html" style="float: left;"><img src="img/logo/logo.png" style="width: 200px;height: 50px;"></a>          
+            <button type="submit"  onclick="mosearch()"; style="height:30px;text-align:center;font-size:medium;left: 460px;top:5px;position: absolute; border:none;background-color: white;">Tìm Kiếm..<i class="fas fa-search"></i></button>
+					<div id="khungsearch" >
+						<div id="thanhsearch">
+						<input type="text"  id="timkiem" placeholder="Tìm kiếm" onkeyup="search(0)">
+						<button onclick= "showsearchnangcao()" >Lọc NC</button>
+						</div>
+						<div id="closesearch" onclick="closesearch();">+</div>
+						<div id="searchnangcao" style="display: none;" class="">
+                            <select id="loaisanpham" onchange="search(0);">
+                                <option value="all" >Tất Cả Sản Phẩm</option>
+                                <option value="Phone" >phone</option>
+                                <option value="Tablet" >Tablet</option>
+                                <option value="Laptop" >Laptop</option>
+                                <option value="SmartWatch" >SmartWatch</option>
+                                 <option value="accessories" >accessories</option>
+                                    
+                            </select>
+							
+                            <div><input style="height: 30px;" type="text" id="priceform"  value="" placeholder="Giá từ"><i id="khoangcachsearch" class= "fa fa-long-arrow-right"></i><input style="height: 30px;" type="text" id="priceto"  value=" " placeholder="Đến">
+                                
+                                <div id="nutloc"  ><button onclick="timkiemnangcao(0);" style="width: 100px;color: white">Lọc</button></div>
+                            </div>
+                            
+                        </div>    					
+							<div id="searchresult"></div>
+                            <div id="phantrangsearch" style="margin-top: 700px;">
+
+                            </div>
+                            <div id="phantrangsearchnangcao" style="margin-top: 700px;">
+                            </div>
+							
+					</div>   
+            <button id="giohangs" onclick ="location.href='giohang.html'"style="background-color: black;height:30px;float: left;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px;border-radius: 5px;cursor: pointer;"><i class="fas fa-shopping-cart"></i>  Giỏ hàng</button>
+            <a href="admin.html" id="quanly" style="display:none;height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px;border-radius: 5px;"><i class="fas fa-user-cog" style="margin-right:8px;"></i>Quản lý </a>
+            <a onclick ="location.href='bill.html'" id="lichsu" style="cursor: pointer;;display:none;height:20px;float: left;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px;border-radius: 5px;" >Lịch sử mua hàng</a>
+            <a  onclick="SignIn();" id="top"; style="height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px; margin-right:10px;border-radius: 5px;cursor: pointer;"><i class="far fa-user-circle"></i> Tài Khoản</a>
+            <a  onclick="logout();" id="top1"; style="display:none;height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px; margin-right:2px;border-radius: 5px;cursor: pointer;"><i class="fas fa-sign-out-alt" ></i></i>LogOut</a>
+            <a href="#"  id="top2"; style="display:none;height:20px;float: right;color: white; text-decoration: none;border: 1px solid; padding: 3px; margin: 5px; margin-right:2px;border-radius: 5px;cursor: pointer;"></a>           
+        </div>
+        <div class="menutop">
+            <ul>
+                <li><a href="index.html?Phone&0"><i class="fas fa-mobile-alt"></i> Điện thoại</a></li>
+                <li><a href="index.html?Laptop&0"><i class="fas fa-laptop"></i> Laptop</a></li>
+                <li><a href="index.html?SmartWatch&0"><i class="far fa-clock"></i> Đồng hồ thông minh</a></li>
+                <li><a href="index.html?accessories&0"><i class="far fa-keyboard"></i> Phụ kiện</a></li>
+                <li><a href="index.html?Tablet&0"><i class="fas fa-tablet-alt"></i> Tablet</a></li>
+            </ul>  
+        </div>
+    </div>
+    <div class="content">
+        <div id="slideshow">
+            <div >
+                <img class="mySlides" src="img/samsung-galaxy-tab-a7-2020-fix-4.jpg" style="height: 400px;width:100%">
+                <img class="mySlides" src="img/slideshow/acer_swift.jpg" style="height: 400px;width:100%">
+                <img class="mySlides" src="img/slideshow/poster1.jpg" style="height: 400px;width:100%">
+                <img class="mySlides" src="img/slideshow/laptop.png" style="height: 400px;width:100%">
+            </div>
+              
+            <div style="position: absolute;top: 380px;left: 600px;">
+                <span class="dot" onclick="currentSlide(0)"></span> 
+                <span class="dot" onclick="currentSlide(1)"></span>  
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+            <!--  </div> -->
+        </div>
+        <div id="boLoc" ></div>
+        <div id="locGia">
+            <!-- <p>Chọn mức giá:</p>
+            <a href="s=duoi-2-trieu">Dưới 2 triệu</a>
+            <a href="s=2-4-trieu">2 - 4 triệu</a>
+            <a href="s=4-10-trieu">4 - 10 triệu</a>
+            <a href="s=tren-10-trieu">Trên 10 triệu</a> -->
+        </div>
+        <div id="main">
+            <div id="sanpham">
+                <!-- <div class = "divsanpham"></div>
+                <div class = "divsanpham"></div>
+                <div class = "divsanpham"></div>
+                <div class = "divsanpham"></div> -->
+            </div>
+            <div id="nenCT" class="nenCT">
+                <div id = "chitietSP">
+                    <div id="head">
+                        <div><h2>Thông tin chi tiết thiết bị</h2></div>
+                        <div class="daux"   onclick="dongchitiet();"><i class="fas fa-times fa-2x "></i></div>
+
+                    </div>
+                    <div id="noidungct">  
+                        <div id ="ctleft">
+                            <img src="" id="imgct"/>
+                        </div>
+                        <div id = "ctright">
+                            <h2 id="ten"></h2>
+                            <h3 id="gia" style="color: red;"></h3>
+                            <div id="hiennutadd"></div>
+                            <!-- <input type="button" id= "btnGH" value="Thêm vào giỏ hàng" onclick="fb.com"/> -->
+                        </div>
+                    </div> 
+                        
+                        <!-- <div style="clear: both;"></div> -->
+                </div>
+            </div>
+            <div style="position: fixed;width: 100%;z-index: 15;">
+                <form class="modal"   name="formDK" style="display:none"   target="_self">
+                <div id="register" >
+                    <div style="border-radius: 25px;border:2px ridge DodgerBlue; margin:5px;  ">
+                        <div id = "head" value = "center" style="border-radius: 25px 25px 0 0;text-align: center;border-bottom:1px solid black;line-height: 40px;height: 40px;background-color:AntiqueWhite; color:black ; font-size:25px;">
+                            <div>ĐĂNG KÝ</div>
+                            <button class="daux"   onclick="dongdangky()">X</button>
+                        </div>
+                        <div id="row">
+                            <div class="left">Họ và tên</div>
+                            <div class="right">
+                                <input type="text" value="" placeholder="Nhập họ và tên" name="fullname" maxlength="30" id='name'   />
+                                <span id="fullnameerror" class="error"></span>
+                            </div>
+                        </div>  
+                        <div id="row">
+                            <div class="left">Số Điện Thoại</div>
+                            <div class="right">
+                                <input type="text" value="" placeholder=" Nhập số điện thoại " name="phone"  maxlength="20"   />
+                                <span id="phoneerror" class="error"></span>
+                            </div>
+                        </div>           
+                        <div id="row">
+                            <div class="left">Tài khoản</div>
+                            <div class="right" >
+                                <input type="text" value="" placeholder="Nhập username" name="username"  maxlength="30"   />
+                                <span id="usererror" class="error"></span>
+                            </div>
+                        </div>         
+                        <div id="row">
+                            <div class="left">Mật khẩu</div>
+                            <div class="right">
+                                <input type="password" value="" placeholder="Nhập mật khẩu" name="pass"  maxlength="20"    />
+                                <span id="passerror"class="error"></span>
+                            </div>
+                        </div>               
+                        <div id="row">
+                            <div class="left">Nhập lại MK</div>
+                            <div class="right">
+                                <input type="password" value="" placeholder="Nhập lại mật khẩu" name="retype"  maxlength="20"   />
+                                <span id="pass2error"class="error"></span>
+                            </div>
+                        </div>
+                        <div id="row">
+                            <div class="left">Địa Chỉ</div>
+                            <div class="right">
+                                <input type="text" value="" placeholder="Nhập địa Chỉ" name="diachi"  maxlength="30"   />
+                                <span id="dcerror"class="error"></span>
+                            </div>
+                        </div>
+        
+                        <div style="border-radius: 0 0 25px 25px;text-align: center; line-height: 35px;background-color:AntiqueWhite;height: 80px;"  required>
+                            <button type="reset" name="reset">Reset</button>
+                            <button type="submit" name="sub" >Đăng Ký</button>
+                            <p>Trở về trang <a href="#" onClick="SignIn()">Đăng nhập</a></p>
+                        </div>
+        
+                    </div>
+        
+                </div>
+                </form>
+                <form class="modal" name="formDN" style="display:none"  target="_self">
+                    <div id="signinn" >
+                        <div style="border-radius: 25px;border:2px ridge DodgerBlue; margin:5px; text-align: center;height: 200px;">
+                        <div style="border-radius: 25px 25px 0 0;text-align: center;border-bottom:1px ridge black;line-height: 40px ; height: 38px;font-size:20px ;background-color:AntiqueWhite;">ĐĂNG NHẬP</div>
+                        <div id="row">
+                            <div class="left">TK</div>
+                            <button class="daux"   onclick=" return dongdangky();">X</button>
+                            <div class="right" >
+                                <input type="text"  placeholder="Nhập username" name="username"  maxlength="30"  />
+                                <span id="loidn1" class="error"></span>
+                            </div>
+                        </div>         
+                        <div id="row">
+                            <div class="left">MK</div>
+                            <div class="right">
+                                <input type="password"  placeholder="Nhập mật khẩu" name="pass"  maxlength="20" />
+                                <span id="loidn2" class="error"></span>
+                            </div>
+                        </div>
+                        <div style="border-radius: 0 0 25px 25px;text-align: center; line-height: 35px;background-color:AntiqueWhite;height: 80px;">
+                            <button type="submit" name="sub">Đăng Nhập</button>
+                            <p>Bạn chưa có tài Khoản ? <a href="#" onClick="Register()">Đăng ký</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+       </div> 
+           
+            <div id="trang"></div>
+            <div style="clear: both;"></div>
+    </div> 
+        <div style="clear: both;"></div>
+    
+    <div class="footer" style="background-color: #C6E2FF; font-size: 18px;" >
+        <div style="float: left; width: 37%;margin-left: 50px;">
+            <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 273 An D. Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh, Việt Nam </p>
+            <p><i class="fas fa-phone"></i> Số điện thoại: 0327610180 </p>
+            <p<i class="fas fa-envelope-open-text"></i> E-mail: vyvuluan@gmail.com</p>
+
+        </div>
+        <div style="float: left; width: 32%;margin-left: 50px;">
+            <p><a href="index.html">Trang chủ</a></p>
+            <p>Thông tin</p>
+            <p>Giới thiệu</p>
+        </div>
+        <div style="float: left; width: 20%;margin-left: 50px;">
+            <p>kết nối với chúng tôi</p>
+            <div style="display: flex;">
+                <a href="https://www.facebook.com/profile.php?id=100008130589056" style="margin-right: 20px ;"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="" style="margin-right: 20px ;"><i class="fab fa-twitter fa-2x" ></i></a>
+                <a href="" style="margin-right: 20px ;"><i class="fab fa-youtube fa-2x"></i></a>
+                <a href="" style="margin-right: 20px ;"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+    </div>
+    <button onclick="taoSP();"></button>
+    <div id="customalert"></div>
+    <script type="text/javascript" src="js.js"> </script>
+</body>
+</html>
